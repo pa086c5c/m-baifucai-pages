@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佰富彩 · 日常查询对照笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: #f3f5f7;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* 开场短句 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2rem 2rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+            margin-bottom: 1.8rem;
+            border: 1px solid #e9edf0;
+        }
+
+        .hero p:first-child {
+            font-size: 1.1rem;
+            color: #5f6b7a;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #b0c4d0;
+            padding-left: 1rem;
+        }
+
+        .hero .opening {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1f2a36;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .sub {
+            color: #4e5b69;
+            max-width: 32em;
+        }
+
+        /* 承接段落卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            margin-bottom: 1.8rem;
+            border: 1px solid #e6eaed;
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e2a36;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #eef2f5;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #2d618c;
+            text-decoration: none;
+            border-bottom: 1.5px solid #cbdae6;
+            transition: border-color 0.2s, background 0.2s;
+            padding: 0 1px;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #2d618c;
+            background: #eef6fd;
+        }
+
+        /* 特点列表：用带间距的条目 */
+        .feature-list {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.9rem;
+            padding: 0.5rem 0.8rem 0.5rem 0.6rem;
+            background: #f9fafc;
+            border-radius: 14px;
+            border: 1px solid #eef1f4;
+            transition: background 0.15s;
+        }
+
+        .feature-list li:hover {
+            background: #f2f5f9;
+        }
+
+        .feature-marker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 1.8rem;
+            height: 1.8rem;
+            background: #e1e9f0;
+            border-radius: 10px;
+            color: #2d4b6a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .feature-list li span:last-child {
+            margin-top: 0.1rem;
+        }
+
+        /* 场景小卡片组 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .scene-item {
+            background: #fafbfc;
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            border-radius: 18px;
+            border: 1px solid #e6eaee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .scene-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2c3a;
+            margin-bottom: 0.4rem;
+        }
+
+        .scene-item p {
+            font-size: 0.95rem;
+            color: #4a5a6a;
+        }
+
+        /* 温和结尾 */
+        .gentle-closing {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e6eaed;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            margin-top: 0.5rem;
+        }
+
+        .gentle-closing p {
+            font-size: 0.98rem;
+            color: #3e4e5e;
+        }
+
+        .gentle-closing .faq-hint {
+            margin-top: 0.9rem;
+            font-size: 0.92rem;
+            background: #f5f8fa;
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            border: 1px solid #e3e9ef;
+        }
+
+        .faq-hint strong {
+            color: #1f2e3e;
+        }
+
+        /* 页脚极小标识 */
+        .foot-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #8c9aa8;
+            letter-spacing: 0.3px;
+        }
+
+        .foot-note a {
+            color: #5b6f80;
+            text-decoration: none;
+            border-bottom: 1px dotted #bcc8d4;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .hero, .card, .gentle-closing {
+                padding-left: 1.3rem;
+                padding-right: 1.3rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .feature-list li {
+                padding: 0.4rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 开场短句 -->
+    <div class="hero">
+        <p>一份日常对照 · 延伸阅读</p>
+        <div class="opening">每天都会用到的一些对照和查询。</div>
+        <div class="sub">从偶然发现到习惯性翻阅，更像是一本随手可翻的个人参考笔记。</div>
+    </div>
+
+    <!-- 承接段落：从日常查询到延伸阅读 -->
+    <div class="card">
+        <h2>从一次查询开始</h2>
+        <p>很多时候，我们打开一个页面只是为了快速核对某个数字、术语或背景。但往往在对照的过程中，会顺着条目发现更多关联信息——这种由点到面的浏览，正是我使用 <a href="https://m-baifucai.com" class="inline-link">佰富彩</a> 时最常经历的路径。它不像一个匆匆路过的工具页，更像是一片内容被仔细整理过的资料站，每次点开都能多停留一会儿。</p>
+        <p>页面结构清晰，条目与条目之间留有余地，信息分组也贴合实际查找的逻辑。无论是随手查看还是认真读几段，都不会觉得杂乱。</p>
+    </div>
+
+    <!-- 特点列表卡片 -->
+    <div class="card">
+        <h2>几个让我持续使用的特点</h2>
+        <ul class="feature-list">
+            <li>
+                <span class="feature-marker">1</span>
+                <span><strong>条目分明</strong> —— 每个模块都像小卡片一样独立，扫一眼就能定位到自己感兴趣的部分，不用在长文本里反复搜索。</span>
+            </li>
+            <li>
+                <span class="feature-marker">2</span>
+                <span><strong>对照友好</strong> —— 数字、名称、简述并列排放，适合快速比对。偶尔需要多列参考时，视觉上也不容易混淆。</span>
+            </li>
+            <li>
+                <span class="feature-marker">3</span>
+                <span><strong>延伸自然</strong> —— 很多条目末尾会附带简短的“相关参考”，引导你去看邻近的内容，但又不会显得刻意推荐。</span>
+            </li>
+            <li>
+                <span class="feature-marker">4</span>
+                <span><strong>加载干净</strong> —— 页面没有多余的弹窗或浮层，打开就是内容本身，这种不打扰的感觉很难得。</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 场景小卡片：典型使用情境 -->
+    <div class="card">
+        <h2>我一般在哪些场景打开它</h2>
+        <div class="scene-grid">
+            <div class="scene-item">
+                <h3>核对基础信息</h3>
+                <p>写东西时需要确认某个名称或分类，打开页面对照一两行，比翻书或搜索更快。</p>
+            </div>
+            <div class="scene-item">
+                <h3>闲暇延伸阅读</h3>
+                <p>周末午后点开一个条目，顺着链接跳转到另一条内容，像在翻一本没有目录的笔记。</p>
+            </div>
+            <div class="scene-item">
+                <h3>快速记录参考</h3>
+                <p>把页面里的片段摘到自己的文档里，格式清晰，稍微调整就能直接用。</p>
+            </div>
+            <div class="scene-item">
+                <h3>与人讨论时查证</h3>
+                <p>聊天时提到某个概念，直接打开页面截个图或念一段，比凭记忆描述准确得多。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + FAQ 风格提示 -->
+    <div class="gentle-closing">
+        <p>这个页面我保留了浏览器标签页很久。信息在不断更新，但它始终保持着一种克制的整理感——不催你点哪里，也不试图说服你，只是安静地陈列内容，等你需要的时候自己翻看。</p>
+        <div class="faq-hint">
+            <strong>❓ 常见疑问摘要</strong> · 有人问过这个站是否收费、是否需要注册。根据目前的使用体验，<a href="https://m-baifucai.com" class="inline-link">佰富彩</a> 主要提供公开内容，访问直接，没有额外的门槛。具体功能细节可以自己在页面里浏览感受。
+        </div>
+    </div>
+
+    <!-- 极小页脚 -->
+    <div class="foot-note">
+        <span>一份个人整理的介绍页 · 内容仅供日常参考 · </span>
+        <a href="https://m-baifucai.com">佰富彩</a>
+    </div>
+</div>
+</body>
+</html>
